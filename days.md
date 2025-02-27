@@ -35,12 +35,14 @@
 ### Implemented fp32 multiplier
 - included support for underflow/overflow/NaN and RNE rounding
 - utilized reduction operators to optimize intial versions
-- tested and verified
+- tested and verified manually
 ### Read up on MAC (CUDACore) vs FMA (TensorCore)
 - MAC(A, B, C) = round(round(A×B)+C)
 - FMA(A, B, C) = round(A×B+C)
 - FMAs reduce error accumulation in large NN computations
-### Implemented a Single CUDACore
-- 
+### Implemented a Single CUDACoreFP32 v0.0
+- performs a MAC operation on two FP32 inputs every clock cycle
+- generated RTL, simulated and tested
+- extended functionally for FP64 MAC op
 ### Implemented [4x4] Matrix Multiplication Module
 - 
