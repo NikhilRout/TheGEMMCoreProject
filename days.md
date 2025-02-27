@@ -32,5 +32,15 @@
 - leaving rounding, NaN, overflow and underflow logic for v0.1
 
 ## Day 4
+### Implemented fp32 multiplier
+- included support for underflow/overflow/NaN and RNE rounding
+- utilized reduction operators to optimize intial versions
+- tested and verified
+### Read up on MAC (CUDACore) vs FMA (TensorCore)
+- MAC(A, B, C) = round(round(A×B)+C)
+- FMA(A, B, C) = round(A×B+C)
+- FMAs reduce error accumulation in large NN computations
+### Implemented a Single CUDACore
+- 
 ### Implemented [4x4] Matrix Multiplication Module
 - 
