@@ -1,8 +1,8 @@
 //no support for overflow/NaN
 
 module fp32add (
-    input [31:0] A, B, // fp32 numbers
-    output [31:0] S // fp32 number
+    input [31:0] A, B, //fp32 numbers
+    output [31:0] S //fp32 number
 );
 
     reg A_sign, B_sign, S_sign;
@@ -19,7 +19,7 @@ module fp32add (
         A_mantissa = (A[30:23] == 0) ? {1'b0, A[22:0]} : {1'b1, A[22:0]};
         B_mantissa = (B[30:23] == 0) ? {1'b0, B[22:0]} : {1'b1, B[22:0]};
         
-        // Align mantissas based on exponents
+        //Align mantissas based on exponents
         if (A_exp > B_exp) begin
             exp_diff = A_exp - B_exp;
             B_mantissa = B_mantissa >> exp_diff;
@@ -32,7 +32,7 @@ module fp32add (
             S_sign = B_sign;
         end
 
-        // Perform addition or subtraction based on sign
+        //Perform addition or subtraction based on sign
         if (A_sign == B_sign) begin
             sum_mantissa = A_mantissa + B_mantissa;
             S_sign = A_sign;
@@ -46,7 +46,7 @@ module fp32add (
             end
         end
 
-        // Normalize result using a for loop to ensure bounded iterations
+        //Normalize result using a for loop to ensure bounded iterations
         if (sum_mantissa[24]) begin
             S_exp = S_exp + 1'b1;
             sum_mantissa = sum_mantissa >> 1;
@@ -58,7 +58,6 @@ module fp32add (
         end
     end
 
-    // Assign final result
     assign S[31] = S_sign;
     assign S[30:23] = S_exp;
     assign S[22:0] = sum_mantissa[22:0];
