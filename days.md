@@ -44,5 +44,5 @@
 - performs a MAC operation on two FP32 inputs every clock cycle
 - generated RTL, simulated and tested
 - extended functionally for FP64 MAC op
-### Implemented [4x4] Matrix Multiplication Module
-- 
+### Implemented [4x4] TensorCoreVolta v0.0
+- generate blocks for looping through matrices (mul in fp16 - add in fp32)
