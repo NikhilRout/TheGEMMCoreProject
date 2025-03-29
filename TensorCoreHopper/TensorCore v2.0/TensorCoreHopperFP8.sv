@@ -11,7 +11,7 @@
 
 module TensorCoreHopperFP8 (
     input [7:0] A[0:3][0:3], B[0:3][0:3],
-    input [7:0] C[0:3][0:3],
+    input [15:0] C[0:3][0:3],
     output [15:0] D[0:3][0:3]
 );
     wire [15:0] P[0:3][0:3]; //mul of A x B
