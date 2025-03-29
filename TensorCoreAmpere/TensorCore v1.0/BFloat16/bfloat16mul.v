@@ -30,7 +30,7 @@ module bfloat16mul (
     wire [13:0] product_mant = full_mant_A * full_mant_B;
     //Normalization
     wire normalize_shift = product_mant[13];
-    wire [22:0] fp32_mantissa = normalize_shift ? {product_mant[13:0], 9'd0} : {product_mant[12:0], 10'd0};
+    wire [22:0] fp32_mantissa = normalize_shift ? {product_mant[12:0], 9'd0} : {product_mant[11:0], 10'd0};
     //no rounding required --> there will never be rounding overflow
 
     //Product Exponent calc
