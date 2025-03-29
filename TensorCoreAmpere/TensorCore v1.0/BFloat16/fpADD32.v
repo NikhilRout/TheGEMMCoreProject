@@ -83,7 +83,7 @@ module fpADD32 (
             end
             default: begin
                         exp_ss = exp_s;
-                        mantissa_ss = mantissa_s;
+                        mantissa_ss = mantissa_s[22:0];
             end
         endcase
     end
