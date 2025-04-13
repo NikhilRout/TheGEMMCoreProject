@@ -1,5 +1,5 @@
 module bfloat16mul (
-    input [15:0] A, B, //fp16 number
+    input [15:0] A, B, //bfloat16 number
     output [31:0] P //fp32 number
 );
     wire sign_A = A[15];
