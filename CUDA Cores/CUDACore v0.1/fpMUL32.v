@@ -38,10 +38,9 @@ module fpMUL32 (
     wire [9:0] exp_sum = {2'b0, exp_a} + {2'b0, exp_b} - 10'd127 + frac_mul_msb; //10bits cause {sign-bit, carry, number}
     wire underflow = exp_sum[9] | (~|exp_sum[8:0]); //underflow detected if sign-bit is 1 --> -ve exp (out of bounds) or exp=0
     wire overflow = !exp_sum[9] & (exp_sum[8] | (&exp_sum[7:0])); //overflow detected if +ve exp and exp >= 255 
-    wire [7:0] exp_final = overflow ? 8'hFF : (underflow ? 8'h00 : exp_sum[7:0]);
     //Handle rounding overflow
     wire round_overflow = (&normalized_frac[46:24]) & normalized_frac[23];
-    wire [7:0] exp_with_round = exp_final + round_overflow;
+    wire [7:0] exp_with_round = exp_sum[7:0] + round_overflow;
     
     //Result selection based on exceptions/special cases
     wire result_is_nan = a_is_nan | b_is_nan | (a_is_inf & b_is_zero) | (a_is_zero & b_is_inf);
