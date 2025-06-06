@@ -1,5 +1,5 @@
 # TheTensorCoreProject
-Microarchitecture implementation of my interpretation of Nvidia's SIMT CUDA, Hybrid-Precision Tensor Core, and Google's Systolic Array TPU MXU Operations
+Microarchitecture implementation of my interpretation of Nvidia's SIMT CUDA, Hybrid-Precision Tensor Core, and Google's Systolic Array TPU MXU GEMM Operations
 
 ## Tensor Core Versions
 ### TensorCore v0: Volta Architecture [FP16MUL FP32ADD]
